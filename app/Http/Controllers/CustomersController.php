@@ -17,13 +17,13 @@ class CustomersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
             'active' => 'required'
         ]);
 
-        Customer::create($request->all());
+        Customer::create($data);
 
         return back();
     }
