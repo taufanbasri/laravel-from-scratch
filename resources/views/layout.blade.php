@@ -8,25 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Laravel From Scratch</title>
+    <title>Laravel From Scratch: @yield('title')</title>
   </head>
   <body>
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about">About Us</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="customers">Customer</a>
-      </li>
-    </ul>
-
     <div class="container">
+        @include('nav')
+
         @yield('content')
     </div>
 

@@ -17,7 +17,8 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
+            'email' => 'required|email'
         ]);
 
         Customer::create($request->all());
