@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <label for="active">Status</label>
-                    <select name="active" id="active" class="form-control">
+                    <select name="active" id="active" class="form-control @error('active')is-invalid @enderror">
                         <option value="">Select customer status</option>
                         <option value="1" {{ old('active') === 1 ? 'selected' : '' }}>Active</option>
                         <option value="0" {{ old('active') === 0 ? 'selected' : '' }}>Inactive</option>
