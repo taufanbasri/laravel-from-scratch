@@ -26,14 +26,7 @@ class CustomersController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'active' => 'required',
-            'company_id' => 'required'
-        ]);
-
-        Customer::create($data);
+        Customer::create($this->validateRequest($request));
 
         return redirect('customers');
     }
@@ -52,15 +45,18 @@ class CustomersController extends Controller
 
     public function update(Request $request, Customer $customer)
     {
-        $data = $request->validate([
+        $customer->update($this->validateRequest($request));
+
+        return redirect()->route('customers.show', $customer);
+    }
+
+    private function validateRequest($request)
+    {
+        return $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
             'active' => 'required',
             'company_id' => 'required'
         ]);
-
-        $customer->update($data);
-
-        return redirect()->route('customers.show', $customer);
     }
 }
