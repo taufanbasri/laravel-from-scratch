@@ -7,6 +7,13 @@
         <div class="col-12">
             <h1>Details for {{ $customer->name }}</h1>
             <p><a href="/customers/{{ $customer->id }}/edit">Edit</a></p>
+
+            <form action="{{ route('customers.destroy', $customer) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     </div>
 

@@ -50,6 +50,13 @@ class CustomersController extends Controller
         return redirect()->route('customers.show', $customer);
     }
 
+    public function destroy(Customer $customer)
+    {
+        $customer->delete();
+
+        return redirect()->route('customers.index');
+    }
+
     private function validateRequest($request)
     {
         return $request->validate([
