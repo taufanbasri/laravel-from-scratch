@@ -15,12 +15,13 @@
     <select name="active" id="active" class="form-control @error('active')is-invalid @enderror">
         @if (Route::is('customers.create'))
             <option value="">Select customer status</option>
-            <option value="1" {{ old('active') == 1 ? 'selected' : '' }}>Active</option>
-            <option value="0" {{ old('active') == 0 ? 'selected' : '' }}>Inactive</option>
+            @foreach ($customer->activeOptions() as $key => $option)
+                <option value="{{ $key }}" {{ old('active') == $key ? 'selected' : '' }}>{{ $option }}</option>
+            @endforeach
         @else
-            <option value="">Select customer status</option>
-            <option value="1" {{ $customer->active == 'Active' ? 'selected' : '' }}>Active</option>
-            <option value="0" {{ $customer->active == 'Inactive' ? 'selected' : '' }}>Inactive</option>
+            @foreach ($customer->activeOptions() as $key => $option)
+                <option value="{{ $key }}" {{ $customer->active == $option ? 'selected' : '' }}>{{ $option }}</option>
+            @endforeach
         @endif
     </select>
     <div>{{ $errors->first('active') }}</div>
