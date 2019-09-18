@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     protected $fillable = ['name', 'email', 'active', 'company_id'];
+
+    protected $attributes = [
+        'active' => 1
+    ];
+
+    public function getActiveAttribute($attribute)
+    {
+        return [
+            0 => 'Inactive',
+            1 => 'Active'
+        ][$attribute];
+    }
     
     public function scopeActive($query)
     {
