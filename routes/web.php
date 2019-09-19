@@ -13,6 +13,8 @@
 
 Route::view('/', 'home');
 Route::view('about', 'about');
-Route::view('contact', 'contact');
+
+Route::get('contact', 'ContactFormController@create');
+Route::post('contact', 'ContactFormController@store');
 
 Route::resource('customers', 'CustomersController');
