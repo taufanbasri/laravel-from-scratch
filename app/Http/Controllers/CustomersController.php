@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class CustomersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except(['index']);
+    }
+
     public function index()
     {
         $customers = Customer::all();
-        $c = Customer::first();
 
         return view('customers.index', compact('customers'));
     }

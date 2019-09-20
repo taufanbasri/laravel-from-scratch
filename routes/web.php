@@ -12,7 +12,7 @@
 */
 
 Route::view('/', 'home');
-Route::view('about', 'about');
+Route::view('about', 'about')->middleware('test');
 
 Route::get('contact', 'ContactFormController@create');
 Route::post('contact', 'ContactFormController@store');
