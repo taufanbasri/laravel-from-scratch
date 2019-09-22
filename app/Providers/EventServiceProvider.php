@@ -21,8 +21,8 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewCustomerHasRegisteredEvent::class => [
             \App\Listeners\WelcomeNewCustomerListener::class,
-            \App\Listeners\NotifyAdminViaSlack::class,
-            \App\Listeners\RegisterCustomerToNewsletter::class,
+            // \App\Listeners\NotifyAdminViaSlack::class,
+            // \App\Listeners\RegisterCustomerToNewsletter::class,
         ],
     ];
 
