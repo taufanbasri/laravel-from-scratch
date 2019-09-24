@@ -1,13 +1,13 @@
 <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" class="form-control @error('name')is-invalid @enderror" value="{{ old('name') ?? $customer->name }}" id="name">
-    <div>{{ $errors->first('name') }}</div>
+    <div class="invalid-feedback">{{ $errors->first('name') }}</div>
 </div>
 
 <div class="form-group">
     <label for="email">Email</label>
     <input type="text" name="email" class="form-control @error('email')is-invalid @enderror" value="{{ old('email') ?? $customer->email }}" id="email">
-    <div>{{ $errors->first('email') }}</div>
+    <div class="invalid-feedback">{{ $errors->first('email') }}</div>
 </div>
 
 <div class="form-group">
@@ -24,7 +24,7 @@
             @endforeach
         @endif
     </select>
-    <div>{{ $errors->first('active') }}</div>
+    <div class="invalid-feedback">{{ $errors->first('active') }}</div>
 </div>
 
 <div class="form-group">
@@ -42,5 +42,11 @@
             @endforeach
         @endif
     </select>
-    <div>{{ $errors->first('company_id') }}</div>
+    <div class="invalid-feedback">{{ $errors->first('company_id') }}</div>
+</div>
+
+<div class="form-group">
+    <label for="image">Profile Image</label>
+    <input type="file" name="image" class="form-control-file @error('image')is-invalid @enderror">
+    <div class="invalid-feedback">{{ $errors->first('image') }}</div>
 </div>

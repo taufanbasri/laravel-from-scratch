@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-12">
-            <form action="/customers" method="POST">
+            <form action="/customers" method="POST" enctype="multipart/form-data">
                 @csrf
         
                 @include('customers.form')
