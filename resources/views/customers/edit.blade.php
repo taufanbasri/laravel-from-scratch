@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-12">
-            <form action="/customers/{{ $customer->id }}" method="POST">
+            <form action="/customers/{{ $customer->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
         

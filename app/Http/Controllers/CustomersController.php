@@ -6,6 +6,7 @@ use App\Company;
 use App\Customer;
 use Illuminate\Http\Request;
 use App\Events\NewCustomerHasRegisteredEvent;
+use Intervention\Image\Facades\Image;
 
 class CustomersController extends Controller
 {
@@ -85,5 +86,8 @@ class CustomersController extends Controller
                 'image' => $request->image->store('uploads', 'public'),
             ]);
         }
+
+        $image = Image::make(public_path('storage/' . $customer->image))->resize(300, 300);
+        $image->save();
     }
 }
