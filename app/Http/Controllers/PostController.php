@@ -9,6 +9,6 @@ class PostController extends Controller
 {
     public function show(Post $post)
     {
-        return view('welcome', compact('post'));
+        return view('post', compact('post'));
     }
 }

@@ -11,7 +11,9 @@
 |
 */
 
-Route::view('/', 'home');
+Route::get('/', 'UploadController@index');
+Route::delete('/images/{imageUpload}', 'UploadController@destroy');
+
 Route::view('about', 'about')->middleware('test');
 
 Route::get('contact', 'ContactFormController@create');
@@ -24,4 +26,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('profile/{profile}', 'ProfilesController@show');
+
 Route::get('post/{post}-{slug}', 'PostController@show');
